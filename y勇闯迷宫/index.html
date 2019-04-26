@@ -1,0 +1,372 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="zhouyunlong"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>贪玩蓝月-勇闯迷宫</title>
+<meta name="keywords" content="贪玩蓝月-勇闯迷宫" />
+<meta name="description" content="贪玩蓝月-勇闯迷宫" />
+<meta name="renderer" content="webkit">
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!--[if lt IE 8]>
+    <div id="js-ie-tips" style="display:block;position:absolute;left:0;top:0;width:100%;height:50px;background:#2fc1c6;text-align:center;line-height:50px;font-size:18px;z-index: 2048;">
+        <a style="color:#fff;text-decoration:underline;" href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads" target="_blank">当前的浏览器版本过低，可能会影响本网页浏览，建议升级到最新版本。</a>
+        <a href="javascript:;" style="color:#fff;" id="js-ie-tips-close" onclick="(function () {document.getElementById('js-ie-tips').style.display = 'none';})()">×</a>
+    </div>
+<![endif]-->
+<div class="warp">
+    <div class="contant">
+        <div class="main">
+            <div class="cw head">
+                <a href="http://lanyue.tanwan.com/" class="logo">贪玩蓝月</a>
+                <img src="images/m1.jpg" alt="">
+            </div>
+            <div class="cw maze">
+                <div class="sign">
+                    <ul>
+                        <!-- 已签到给li增加样式 cur -->
+                        <li class="cur"><a href="javascript:;" class="s1" title="1天签到">1天签到</a></li>
+                        <li><a href="javascript:;" class="s2" title="2天签到">2天签到</a></li>
+                        <li><a href="javascript:;" class="s3" title="3天签到">3天签到</a></li>
+                        <li><a href="javascript:;" class="s4" title="4天签到">4天签到</a></li>
+                        <li><a href="javascript:;" class="s5" title="5天签到">5天签到</a></li>
+                        <li><a href="javascript:;" class="s6" title="6天签到">6天签到</a></li>
+                        <li><a href="javascript:;" class="s7" title="7天签到">7天签到</a></li>
+                    </ul>
+                </div>
+                <div class="maze_info">
+                    <div class="fl">剩余时间：<span id="J_time">00:00</span></div>
+                    您当前剩余游戏次数：<span id="J_total">3</span>
+                    <div class="fr">您当前宝物积分为：<span id="J_integral">0</span></div>
+                </div>
+                <div class="map" id="map">
+                    <div id="J_target" class="target"><span class="gtl"></span></div>
+                    <div class="start_game">
+                        <a id="J_start" class="game_btn" href="javascript:;">开始探险</a>
+                    </div>
+                    <div id="J_maze" class="maze_area"></div>
+                </div>
+                <div class="integral">
+                    <p class="integral_tit">迷宫内道具名称及对应积分</p>
+                    <ul class="integral_list cl">
+                        <li>
+                            <div class="t">20积分</div>
+                            <div class="dj d1"></div>
+                            <div class="txt">古天乐时装 </div>
+                        </li>
+                        <li>
+                            <div class="t">20积分</div>
+                            <div class="dj d2"></div>
+                            <div class="txt t2">传奇王者<br>古天乐</div>
+                        </li>
+                        <li>
+                            <div class="t">20积分</div>
+                            <div class="dj d3"></div>
+                            <div class="txt t2">超级轮回丹<br>（人物）</div>
+                        </li>
+                        <li>
+                            <div class="t">20积分</div>
+                            <div class="dj d4"></div>
+                            <div class="txt t2">超级轮回丹<br>（英雄）</div>
+                        </li>
+                        <li>
+                            <div class="t">15积分</div>
+                            <div class="dj d5"></div>
+                            <div class="txt t2">魂石结晶<br>（中）</div>
+                        </li>
+                        <li>
+                            <div class="t">15积分</div>
+                            <div class="dj d6"></div>
+                            <div class="txt t2">高级修为丹<br>（人物）</div>
+                        </li>
+                        <li>
+                            <div class="t">10积分</div>
+                            <div class="dj d7"></div>
+                            <div class="txt ">锁妖塔卷轴</div>
+                        </li>
+                        <li>
+                            <div class="t">10积分</div>
+                            <div class="dj d8"></div>
+                            <div class="txt t2">成就令<br>（中）</div>
+                        </li>
+                        <li>
+                            <div class="t">10积分</div>
+                            <div class="dj d9"></div>
+                            <div class="txt t2">高级真气丹<br>（英雄）</div>
+                        </li>
+                        <li>
+                            <div class="t">5积分</div>
+                            <div class="dj d10"></div>
+                            <div class="txt t2">功勋令<br>（中）</div>
+                        </li>
+                        <li>
+                            <div class="t">5积分</div>
+                            <div class="dj d11"></div>
+                            <div class="txt">羽毛</div>
+                        </li>
+                        <li class="last">
+                            <div class="t">5积分</div>
+                            <div class="dj d12"></div>
+                            <div class="txt">金砖（小）</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rule">
+                    <div class="rule_tit">规则说明</div> 
+                    <p>1.玩家可以控制代言人在迷宫内进行获得道具，道具会产生对应的宝物积分。</p>
+                    <p>2.每天签到后会获得一次免费进行迷宫活动的机会，同时可以额外获得一次抽奖机会。</p>
+                    <p>3.每天充值10元、和充值100元都会赠送一次额外的游戏机会，游戏次数次日清空。</p>
+                    <p>4.宝物积分可以在“迷宫宝藏”里面兑换稀有宝物。活动结束以后积分会清零，请及时兑换使用。</p>
+                </div>
+            </div>
+
+            <div class="cw treasure">
+                <ul>
+                    <li class="ts1"><a href="javascript:;" title="辉煌幻武"><span>兑换</span></a></li>
+                    <li class="ts2"><a href="javascript:;" title="辉煌之羽"><span>兑换</span></a></li>
+                    <li class="ts3"><a href="javascript:;" title="辉煌足迹"><span>兑换</span></a></li>
+                    <li class="ts4"><a href="javascript:;" title="辉煌时装"><span>兑换</span></a></li>
+                    <li class="ts5"><a href="javascript:;" title="古天乐时装"><span>兑换</span></a></li>
+                    <li class="ts6"><a href="javascript:;" title="孙红雷时装"><span>兑换</span></a></li>
+                    <li class="ts7"><a href="javascript:;" title="超级轮回丹(英雄)"><span>兑换</span></a></li>
+                    <li class="ts8"><a href="javascript:;" title="属性药水礼包"><span>兑换</span></a></li>
+                    <li class="ts9"><a href="javascript:;" title="高级轮回丹(英雄)"><span>兑换</span></a></li>
+                    <li class="ts10"><a href="javascript:;" title="高级修改为丹"><span>兑换</span></a></li>
+                    <li class="ts11"><a href="javascript:;" title="高级修改为丹(英雄)"><span>兑换</span></a></li>
+                    <li class="ts12"><a href="javascript:;" title="金砖(大)"><span>兑换</span></a></li>
+                </ul>
+                <div class="rule">
+                    <div class="rule_tit">活动说明</div> 
+                    <p>1.活动时间：2018年5月21日-6月4日。</p>
+                    <p>2.宝藏内物品只能兑换一次，数量有限，先到先得。</p>
+                    <p>3.本活动的最终解析权归《贪玩蓝月》运营团队所有。</p>
+                </div>
+
+            </div>
+
+            <div class="cw lottery">
+                <div class="cl">
+                    <div class="lottery_left">
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tbody>
+                                <tr>
+                                    <td class="lottery-unit-0"><div class="jp"><p class="txt">三周年门票</p></div></td>
+                                    <td class="lottery-unit-1"><div class="jp"><p class="txt">3000元宝</p></div></td>
+                                    <td class="lottery-unit-2"><div class="jp"><p class="txt">三周年纪念币</p></div></td>
+                                    <td class="lottery-unit-3"><div class="jp"><p class="txt">传奇王者-古天乐</p></div></td>
+                                </tr>
+                                <tr>
+                                    <td class="lottery-unit-11"><div class="jp"><p class="txt">我是古天乐(称号)</p></div></td>
+                                    <td colspan="2" rowspan="2">
+                                        <a class="lottery_btn" href="javascript:;">
+                                            <p>您当前还有<span>XXX</span>次抽奖次数</p>
+                                        </a>
+                                    </td>
+                                    <td class="lottery-unit-4"><div class="jp"><p class="txt">6000元宝</p></div></td>
+                                </tr>
+                                <tr>
+                                    <td class="lottery-unit-10"><div class="jp"><p class="txt">贪玩定制充电宝</p></div></td>
+                                    <td class="lottery-unit-5"><div class="jp"><p class="txt">机械鼠标键盘套装</p></div></td>
+                                </tr>
+                                <tr>
+                                    <td class="lottery-unit-9 active"><div class="jp"><p class="txt">巨星古天乐时装</p></div></td>
+                                    <td class="lottery-unit-8"><div class="jp"><p class="txt">8000元宝</p></div></td>
+                                    <td class="lottery-unit-7"><div class="jp"><p class="txt">贪玩定制雨伞</p></div></td>
+                                    <td class="lottery-unit-6"><div class="jp"><p class="txt">明天继续</p></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="lists">
+
+                        <div id="J_lists" class="txtMarquee-top">
+                            <div class="bd">
+                                <ul class="picList">
+                                    <li>8恭喜hyx**************获得888元宝</li>
+                                    <li>9恭喜hyx**************获得888元宝</li>
+                                    <li>10恭喜hyx*************获得888元宝</li>
+                                    <li>11恭喜hyx*************获得888元宝</li>
+                                    <li>12恭喜hyx*************获得888元宝</li>
+                                    <li>13恭喜hyx*************获得888元宝</li>
+                                    <li>14恭喜hyx*************获得888元宝</li>
+                                    <li>15恭喜hyx*************获得888元宝</li>
+                                    <li>16恭喜hyx*************获得888元宝</li>
+                                    <li>17恭喜hyx*************获得888元宝</li>
+                                    <li>18恭喜hyx*************获得888元宝</li>
+                                    <li>8恭喜hyx**************获得888元宝</li>
+                                    <li>9恭喜hyx**************获得888元宝</li>
+                                    <li>10恭喜hyx*************获得888元宝</li>
+                                    <li>11恭喜hyx*************获得888元宝</li>
+                                    <li>12恭喜hyx*************获得888元宝</li>
+                                    <li>13恭喜hyx*************获得888元宝</li>
+                                    <li>14恭喜hyx*************获得888元宝</li>
+                                    <li>15恭喜hyx*************获得888元宝</li>
+                                    <li>16恭喜hyx*************获得888元宝</li>
+                                    <li>17恭喜hyx*************获得888元宝</li>
+                                    <li>18恭喜hyx*************获得888元宝</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="lists_btn">
+                            <a href="javascript:;" class="inquire">中奖查询</a>
+                            <a href="javascript:;" class="register">信息登记</a>
+                        </div>
+                    </div>  
+                </div>
+                <div class="rule">
+                    <div class="rule_tit">抽奖规则</div> 
+                    <p>1.每天有一次抽奖机会，当天参与二次迷宫寻宝活动，可额外获得一次抽奖机会。</p>
+                    <p>2.抽奖所中实物、元宝奖会在活动结束后1-7个工作日发放。</p>
+                    <p>3.本活动最终解析权归《贪玩蓝月》运营团队所有</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 迷宫获得积分 -->
+<div class="pop">
+    <div class="pop_main">
+        <a href="javascript:;" class="close">关闭</a>
+        <div class="pop_body">
+            <div class="pt pt1">迷宫寻宝结果</div>
+            <div class="result">
+                <p>您本次在迷宫中共寻得了<span class="live">12</span>件宝物</p>
+                <p>获得了<span class="live">5872</span>积分</p>
+            </div>
+            <ul class="result_list cl">
+                <li><img src="images/t0.jpg" alt=""> 价值<span class="live">40</span>积分</li>
+                <li><img src="images/t1.jpg" alt=""> 价值<span class="live">40</span>积分</li>
+                <li><img src="images/t2.jpg" alt=""> 价值<span class="live">40</span>积分</li>
+                <li><img src="images/t3.jpg" alt=""> 价值<span class="live">40</span>积分</li>
+                <li><img src="images/t4.jpg" alt=""> 价值<span class="live">40</span>积分</li>
+                <li><img src="images/t5.jpg" alt=""> 价值<span class="live">40</span>积分</li>
+                <li><img src="images/t6.jpg" alt=""> 价值<span class="live">40</span>积分</li>
+                <li><img src="images/t7.jpg" alt=""> 价值<span class="live">40</span>积分</li>
+                <li><img src="images/t8.jpg" alt=""> 价值<span class="live">40</span>积分</li>
+                <li><img src="images/t9.jpg" alt=""> 价值<span class="live">40</span>积分</li>
+                <li><img src="images/t10.jpg" alt=""> 价值<span class="live">40</span>积分</li>
+                <li><img src="images/t11.jpg" alt=""> 价值<span class="live">40</span>积分</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- 个人信息-获奖填写 -->
+<div class="pop" id="J_editInfo">
+    <div class="pop_main">
+        <a href="javascript:;" class="close">关闭</a>
+        <div class="pop_body">
+            <div class="pt pt2">个人信息</div>
+            <ul class="form">
+                <li data-title="游戏名"><input type="text" class="input" value=" "></li>
+                <li data-title="区服类"><input type="text" class="input" value=" "></li>
+                <li data-title="区服ID"><input type="text" class="input" value=" "></li>
+                <li data-title="角色名"><input type="tel" class="input" value=" "></li>
+            </ul>
+            <a href="javascript:;" class="submit">确认</a>
+        </div>
+    </div>
+</div>
+
+<!-- 个人信息 -->
+<div class="pop">
+    <div class="pop_main">
+        <a href="javascript:;" class="close">关闭</a>
+        <div class="pop_body">
+            <div class="pt pt2">个人信息</div>
+            <div class="user_info">
+                <ul>
+                    <li><span>区　服：</span>辉煌1997</li>
+                    <li><span>角色名：</span>冥妖</li>
+                    <li><span>姓　名：</span>林某某</li>
+                    <li><span>手　机：</span>15912345671</li>
+                    <li><span>地　址：</span>广东省广州市天河区员村四横路红砖厂A3</li>
+                </ul>
+            </div>
+            <a href="javascript:;" class="submit">确认</a>
+        </div>
+    </div>
+</div>
+
+<!-- 恭喜获得-虚拟物品 -->
+<div class="pop">
+    <div class="pop_main">
+        <a href="javascript:;" class="close">关闭</a>
+        <div class="pop_body">
+            <div class="pt pt3">恭喜您获得</div>
+            <div class="result_txt">
+                6666元宝
+            </div>
+            <div class="user_info qhm">
+                <div class="qt">激 活 码</div>
+                <p class="code">EDHW 1326 W5QW 5R6Q</p>
+            </div>
+            <a href="javascript:;" class="submit">确认</a>
+        </div>
+    </div>
+</div>
+
+<!-- 恭喜获得-实物 -->
+<div class="pop" id="J_prizeInfo">
+    <div class="pop_main">
+        <a href="javascript:;" class="close">关闭</a>
+        <div class="pop_body">
+            <div class="pt pt3">恭喜您获得</div>
+            <div class="jp_txt">
+                贪玩三周年入场券
+            </div>
+            <a href="javascript:;" id="J_awards" class="awards">请填写领奖信息</a>
+        </div>
+    </div>
+</div>
+
+<!-- 我的奖品 -->
+<div class="pop">
+    <div class="pop_main">
+        <a href="javascript:;" class="close">关闭</a>
+        <div class="pop_body">
+            <div class="tit">我的奖品</div> 
+			<ul class="my_prize">
+				<li>三周年门票</li>
+				<li>传奇王者-古天乐</li>
+				<li>传奇王者-古天乐</li>
+			</ul> 
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="http://image.tanwan.com/jsCommon/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="http://image.tanwan.com/jsCommon/tw_nav_public.js"></script>
+<script type="text/javascript" src="http://image.tanwan.com/jsCommon/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="js/maze.js"></script>
+<script type="text/javascript">
+    $("#J_lists").slide({mainCell:".bd ul",autoPlay:true,effect:"topMarquee",vis:12,interTime:50,trigger:"click"});  
+	var total = 3; //游戏次数
+    $('#J_start').on('click',function(){	
+        total--;        
+		$('#J_total').text(total);	
+        $('.start_game').hide();		
+        mazeGame(90,mazeCallback);   //mazeGame(time,mazeCallback)   //time：时间   mazeCallback：回调
+		function mazeCallback(val){
+            alert('您在本次迷宫活动中吃了'+ val.bw +'件宝物，获得'+ val.jf +'积分')
+			$('.start_game').show();
+            $('#J_target').attr('style','');
+            if(total == 0){
+                $('#J_start').hide();
+            }
+        }
+    });
+    //填写领奖信息
+    $('#J_awards').on('click',function(){
+        $('#J_prizeInfo').fadeOut();
+        $('#J_editInfo').fadeIn();
+    });
+
+</script>
+</body>
+</html>
