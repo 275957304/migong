@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="zhouyunlong"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>传奇世界</title>
+<meta name="keywords" content="传奇世界" />
+<meta name="description" content="传奇世界" />
+<meta name="renderer" content="webkit">
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!--[if lt IE 8]>
+    <div id="js-ie-tips" style="display:block;position:absolute;left:0;top:0;width:100%;height:50px;background:#2fc1c6;text-align:center;line-height:50px;font-size:18px;z-index: 2048;">
+        <a style="color:#fff;text-decoration:underline;" href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads" target="_blank">当前的浏览器版本过低，可能会影响本网页浏览，建议升级到最新版本。</a>
+        <a href="javascript:;" style="color:#fff;" id="js-ie-tips-close" onclick="(function () {document.getElementById('js-ie-tips').style.display = 'none';})()">×</a>
+    </div>
+<![endif]-->
+<div id="loading" class="loading">
+    <div class="loadPress">
+        <div class="loadLogo"><div class="loadSuc"></div></div>
+        <div class="percent">0%</div>
+    </div>
+</div>
+<div class="top_link">
+    <a href="#"><i class="i_home"></i>官网首页</a>
+    <a href="#"><i class="i_zq"></i>进入专区</a>
+    <a href="#"><i class="i_down"></i>微端下载</a>
+    <a id="J_sound" class="sound" href="JavaScript:;"><i class="i_music"></i>音乐</a>
+</div>
+<div class="sub">
+    <a href="http://cqsj.tanwan.com/" target="_blank" class="logo">传奇世界</a>
+    <ul id="j_sub" class="sub_list">
+        <li data-id="1" class="active"><span class="pn">壹</span><div class="stxt">网站首页</div></li>
+        <li data-id="2"><span class="pn">贰</span><div class="stxt">迷宫脱困</div></li>
+        <li data-id="3"><span class="pn">叁</span><div class="stxt">幸运抽奖</div></li>
+    </ul>
+	<i class="mouse"></i>
+</div>
+<div id="J_slide" class="slide">
+    <div id="J_p1" class="section">
+        <div class="cover_t"></div>
+        <div class="cover_b"></div>
+        <div class="home_bg"></div>
+		<div class="walk page1_walk"></div>
+        <div id="J_home" class="home">
+            <div class="number"><span id="J_number">90</span>%</div>
+            <div class="home_sele">
+                <i class="mouse"></i>
+				<a id="J_to2" href="javascript:;" class="s_left">立即帮忙</a>
+                <a href="javascript:;" class="s_right">呼唤帮手</a>
+                <span style="right: 52px;top: -229px;" class="point"><img src="images/point.png" alt=""></span>
+            </div>
+            <div class="slogan">
+                <img src="images/slogan.png" alt="">
+            </div>
+			<div class="slogan_txt">
+				<p><span class="yellow" style="font-size:23px;">代言人候选者们</span>在赶往传奇世界的路上<span class="yellow" style="font-size:27px;">误入神渊魔域</span>，现正<span class="yellow" style="font-size:27px;">被迷宫困住</span>无法得脱！！</p>
+                <p>如果赶不上代言人竞选的时间，他们将无法成为传奇世界代言人，<span class="red" style="font-size:24px;">快来帮助他们脱困</span>抵达目的地吧！</p>
+			</div>
+        </div>
+    </div>
+    <div id="J_p2" class="section">
+        <div class="bg_b"></div>
+        <div id="J_two" class="two_main">
+            <div class="sz_bg"></div><div class="mz_bg"></div>
+            <a id="J_sz" data-id="1" href="javascript:void(0)" class="sz"><span>神族</span></a>
+            <a id="J_mz" data-id="2" href="javascript:void(0)" class="mz"><span>魔族</span></a>
+            <div class="walk"></div>
+        </div>
+
+        <div id="J_gameBg">
+            <div id="J_mapbg_1" class="gamebg"><div class="mb1"></div><div class="mb2"></div><div class="mb3"></div></div>
+            <div id="J_mapbg_2" class="gamebg"><div class="mb4"></div></div>
+            <div id="J_map">
+                <div id="J_target" class="target"><span class="man"></span></div>
+                <div class="start_game">
+                    <span class="game_ts"></span>
+                    <p>请使用键盘方向键进行操作</p>
+                    <a id="J_start" class="game_btn" href="javascript:;">开始探险</a>
+                </div>
+                <div id="J_maze" class="maze_area"></div>
+            </div>
+
+            <div id="J_success" class="success_pop">
+                <div class="pop_main">
+					<a class="close" href="javascript:;">关闭</a>
+                    <div class="title">恭喜你！</div>
+                    <p class="pop_tisp">成功引领代言人走出迷宫困境。<br/>获得一次抽奖机会！！！</p>
+                    <div class="pop_btn">
+                        <a class="shear" href="javascript:;" title="分享结果">分享结果</a>
+                        <a id="J_toLottery" href="javascript:;" title="前往抽奖">前往抽奖</a>
+                    </div>
+                    <p style="color:#7e472a;">代言人候选者们成功脱困！《传奇世界》网页版代言人竞选大赛即将开启！</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="J_p3" class="section lottery_area">
+        <div class="lottery_box">
+            <ul class="lottery_top">
+                <li><span>活动时间</span>2017年8月15日-2017年8月30日23点59分</li>
+                <li><span>活动范围</span>全服</li>
+                <li><span>活动规则</span>每个账号完成引领后可获得一次抽奖机会，分享可额外获得一次；每个IP每天最多可获得6次机会；<br>抽奖获得的游戏道具以激活码的形式发放，请复制激活码在游戏中领取；元宝和实物奖励则在3个工作日内进行发放</li>
+            </ul>
+            <div class="lottery_item clearfix">
+                <div id="lottery" class="cj_zp">
+                    <table border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                        <tr>
+                            <td class="lottery-unit lottery-unit-0" title="888元宝"><i></i><em>888元宝</em></td>
+                            <td class="lottery-unit lottery-unit-1" title="贪玩抱枕"><i></i><em>贪玩抱枕</em></td>
+                            <td class="lottery-unit lottery-unit-2" title="主角经验箱500W"><i></i><em style="bottom:39px;">主角经验箱<br>500W</em></td>
+                        </tr>
+                        <tr>
+                            <td class="lottery-unit lottery-unit-7" title="贪玩雨伞"><i></i><em>贪玩雨伞</em></td>
+                        <td>
+                            <a href="javascript:void(0);" id="choujiang" title="开始抽奖" target="_self">开始抽奖</a>
+                        </td>
+                            <td class="lottery-unit lottery-unit-3" title="金条100W"><i></i><em style="bottom:39px;">金条<br>100W</em></td>
+                        </tr>
+                        <tr>
+                            <td class="lottery-unit lottery-unit-6" title="500绑元"><i></i><em>500绑元</em></td>
+                            <td class="lottery-unit lottery-unit-5" title="谢谢参与"><i></i><em>谢谢参与</em></td>
+                            <td class="lottery-unit lottery-unit-4" title="元神经验箱500W"><i></i><em>元神经验箱500W</em></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="lottery_show">
+					<h3 class="l_tit">获奖公告</h3>
+					<div class="show_list">
+						<ul>
+							<li>hf******7899 获得 889元宝</li>
+							<li>hf******7899 获得 889元宝</li>
+							<li>hf******7899 获得 889元宝</li>
+							<li>hf******7899 获得 889元宝</li>
+							<li>hf******7899 获得 889元宝</li>
+							<li>hf******7899 获得 889元宝</li>
+							<li>hf******7899 获得 889元宝</li>
+							<li>hf******7899 获得 889元宝</li>
+							<li>hf******7899 获得 889元宝</li>
+							<li>hf******7899 获得 889元宝</li>
+						</ul>
+					</div>
+					<a href="#" title="中奖查询" class="inquire">中奖查询</a>
+				</div>
+
+            </div>
+            <div class="lottery_txt">
+				引领代言人候选者走出迷宫，可获得抽奖机会！<br/>当前可进行N次抽奖，祝您好运！
+				<div class="walk"></div>
+			</div>
+        </div>
+
+    </div>
+</div>
+
+<audio id="audio" autobuffer autoplay="" loop="loop">
+	<source src="images/music.mp3" type="audio/mpeg"></source>
+</audio>
+<script type="text/javascript" src="http://image.tanwan.com/jsCommon/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+    $('#J_start').on('click',function(){
+        $(document).on("keydown");
+        $('.start_game').hide();
+        $("#J_target").animate({"left": "20px"});
+        mazeGame(mazeCallback,map);
+        function mazeCallback(){
+            $("#J_target").animate({
+				"left": "+=100"
+			});
+            $('#J_success').show();
+            console.log('成功走出迷宫')
+        }
+    })
+</script>
+</body>
+</html>
